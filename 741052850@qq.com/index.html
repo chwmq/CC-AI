@@ -1,0 +1,917 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瓷韵匠心 - 传承千年陶瓷艺术</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 引入Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  
+  <!-- 配置Tailwind自定义颜色和字体 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4A6F5D',      // 青瓷色
+            secondary: '#F5F2EB',    // 米白色
+            accent: '#D4AF37',       // 金色
+            dark: '#333333',         // 深灰色
+            light: '#F9F7F3',        // 浅米色
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['"Noto Serif SC"', 'serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      .transition-custom {
+        transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+      .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+    }
+  </style>
+  
+  <!-- 基础样式 -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .carousel-item {
+      display: none;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    
+    .carousel-item.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .product-card img {
+      transition: transform 0.5s ease;
+    }
+    
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .nav-scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, system-ui, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-bottom-6{bottom:-1.5rem}.-right-6{right:-1.5rem}.bottom-6{bottom:1.5rem}.bottom-8{bottom:2rem}.left-1\/2{left:50%}.left-4{left:1rem}.right-4{right:1rem}.right-8{right:2rem}.top-1\/2{top:50%}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.ml-2{margin-left:0.5rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-3{height:0.75rem}.h-48{height:12rem}.h-64{height:16rem}.h-\[70vh\]{height:70vh}.h-auto{height:auto}.h-full{height:100%}.min-h-\[500px\]{min-height:500px}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-3{width:0.75rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-t{border-top-width:1px}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(74 111 93 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-accent{--tw-bg-opacity:1;background-color:rgb(212 175 55 / var(--tw-bg-opacity, 1))}.bg-dark{--tw-bg-opacity:1;background-color:rgb(51 51 51 / var(--tw-bg-opacity, 1))}.bg-light{--tw-bg-opacity:1;background-color:rgb(249 247 243 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(74 111 93 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(74 111 93 / 0.1)}.bg-secondary{--tw-bg-opacity:1;background-color:rgb(245 242 235 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/50{background-color:rgb(255 255 255 / 0.5)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-dark\/60{--tw-gradient-from:rgb(51 51 51 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(51 51 51 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-8{padding-bottom:2rem}.pt-16{padding-top:4rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-serif{font-family:"Noto Serif SC", serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[clamp\(1\.8rem\2c 3vw\2c 2\.5rem\)\]{font-size:clamp(1.8rem,3vw,2.5rem)}.text-\[clamp\(1rem\2c 2vw\2c 1\.25rem\)\]{font-size:clamp(1rem,2vw,1.25rem)}.text-\[clamp\(2\.5rem\2c 5vw\2c 4rem\)\]{font-size:clamp(2.5rem,5vw,4rem)}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-accent{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-dark{--tw-text-opacity:1;color:rgb(51 51 51 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(74 111 93 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-90{opacity:0.9}.opacity-100{opacity:1}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }.text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }.hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }.hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+    .hover\:bg-accent\/90:hover{background-color:rgb(212 175 55 / 0.9)}
+    .hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(74 111 93 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-primary\/10:hover{background-color:rgb(74 111 93 / 0.1)}
+    .hover\:bg-primary\/20:hover{background-color:rgb(74 111 93 / 0.2)}
+    .hover\:bg-primary\/90:hover{background-color:rgb(74 111 93 / 0.9)}
+    .hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}
+    .hover\:bg-white\/40:hover{background-color:rgb(255 255 255 / 0.4)}
+    .hover\:text-accent:hover{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}
+    .hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}
+    .hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}
+    .focus\:border-transparent:focus{border-color:transparent}
+    .focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}
+    .focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}
+    .focus\:ring-primary:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(74 111 93 / var(--tw-ring-opacity, 1))}
+    @media (min-width: 640px){.sm\:block{display:block}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}
+    @media (min-width: 768px){.md\:mb-0{margin-bottom:0px}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}}
+    @media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}
+  </style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, system-ui, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-bottom-6{bottom:-1.5rem}.-right-6{right:-1.5rem}.bottom-6{bottom:1.5rem}.bottom-8{bottom:2rem}.left-1\/2{left:50%}.left-4{left:1rem}.right-4{right:1rem}.right-8{right:2rem}.top-1\/2{top:50%}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-3{height:0.75rem}.h-48{height:12rem}.h-64{height:16rem}.h-\[70vh\]{height:70vh}.h-auto{height:auto}.h-full{height:100%}.min-h-\[500px\]{min-height:500px}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-3{width:0.75rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border-2{border-width:2px}.border-t{border-top-width:1px}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(74 111 93 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-dark{--tw-bg-opacity:1;background-color:rgb(51 51 51 / var(--tw-bg-opacity, 1))}.bg-light{--tw-bg-opacity:1;background-color:rgb(249 247 243 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(74 111 93 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(74 111 93 / 0.1)}.bg-secondary{--tw-bg-opacity:1;background-color:rgb(245 242 235 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/50{background-color:rgb(255 255 255 / 0.5)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-dark\/60{--tw-gradient-from:rgb(51 51 51 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(51 51 51 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-8{padding-bottom:2rem}.pt-16{padding-top:4rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-serif{font-family:"Noto Serif SC", serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[clamp\(1\.8rem\2c 3vw\2c 2\.5rem\)\]{font-size:clamp(1.8rem,3vw,2.5rem)}.text-\[clamp\(1rem\2c 2vw\2c 1\.25rem\)\]{font-size:clamp(1rem,2vw,1.25rem)}.text-\[clamp\(2\.5rem\2c 5vw\2c 4rem\)\]{font-size:clamp(2.5rem,5vw,4rem)}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-accent{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-dark{--tw-text-opacity:1;color:rgb(51 51 51 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(74 111 93 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-100{opacity:1}.opacity-0{opacity:0}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }.text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }.hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }.hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+    .hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(74 111 93 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-primary\/10:hover{background-color:rgb(74 111 93 / 0.1)}
+    .hover\:bg-primary\/20:hover{background-color:rgb(74 111 93 / 0.2)}
+    .hover\:bg-primary\/90:hover{background-color:rgb(74 111 93 / 0.9)}
+    .hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}
+    .hover\:bg-white\/40:hover{background-color:rgb(255 255 255 / 0.4)}
+    .hover\:text-accent:hover{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}
+    .hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}
+    @media (min-width: 640px){.sm\:block{display:block}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}
+    @media (min-width: 768px){.md\:mb-0{margin-bottom:0px}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}}
+    @media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}
+  </style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, system-ui, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-bottom-6{bottom:-1.5rem}.-right-6{right:-1.5rem}.bottom-6{bottom:1.5rem}.bottom-8{bottom:2rem}.left-1\/2{left:50%}.left-4{left:1rem}.right-4{right:1rem}.right-8{right:2rem}.top-1\/2{top:50%}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-3{height:0.75rem}.h-48{height:12rem}.h-64{height:16rem}.h-\[70vh\]{height:70vh}.h-auto{height:auto}.h-full{height:100%}.min-h-\[500px\]{min-height:500px}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-3{width:0.75rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border-2{border-width:2px}.border-t{border-top-width:1px}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(74 111 93 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-dark{--tw-bg-opacity:1;background-color:rgb(51 51 51 / var(--tw-bg-opacity, 1))}.bg-light{--tw-bg-opacity:1;background-color:rgb(249 247 243 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(74 111 93 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(74 111 93 / 0.1)}.bg-secondary{--tw-bg-opacity:1;background-color:rgb(245 242 235 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/50{background-color:rgb(255 255 255 / 0.5)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-dark\/60{--tw-gradient-from:rgb(51 51 51 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(51 51 51 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-8{padding-bottom:2rem}.pt-16{padding-top:4rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-serif{font-family:"Noto Serif SC", serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[clamp\(1\.8rem\2c 3vw\2c 2\.5rem\)\]{font-size:clamp(1.8rem,3vw,2.5rem)}.text-\[clamp\(1rem\2c 2vw\2c 1\.25rem\)\]{font-size:clamp(1rem,2vw,1.25rem)}.text-\[clamp\(2\.5rem\2c 5vw\2c 4rem\)\]{font-size:clamp(2.5rem,5vw,4rem)}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-accent{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-dark{--tw-text-opacity:1;color:rgb(51 51 51 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(74 111 93 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-100{opacity:1}.opacity-0{opacity:0}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }.text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }.hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }.hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+    .hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(74 111 93 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-primary\/10:hover{background-color:rgb(74 111 93 / 0.1)}
+    .hover\:bg-primary\/20:hover{background-color:rgb(74 111 93 / 0.2)}
+    .hover\:bg-primary\/90:hover{background-color:rgb(74 111 93 / 0.9)}
+    .hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}
+    .hover\:bg-white\/40:hover{background-color:rgb(255 255 255 / 0.4)}
+    .hover\:text-accent:hover{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}
+    .hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}
+    @media (min-width: 640px){.sm\:block{display:block}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}
+    @media (min-width: 768px){.md\:mb-0{margin-bottom:0px}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}}
+    @media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}
+  </style></head>
+
+<body class="bg-secondary text-dark">
+  <!-- 导航栏 -->
+  <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent nav-scrolled">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <!-- 品牌LOGO -->
+        <a href="#" class="flex items-center space-x-2">
+          <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+            <i class="fa fa-paint-brush text-white text-xl"></i>
+          </div>
+          <span class="text-2xl font-serif font-bold text-primary">瓷韵匠心</span>
+        </a>
+        
+        <!-- 桌面导航菜单 -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#home" class="text-primary hover:text-accent font-medium transition-colors">首页</a>
+          <a href="#about" class="text-primary hover:text-accent font-medium transition-colors">关于我们</a>
+          <a href="#products" class="text-primary hover:text-accent font-medium transition-colors">产品中心</a>
+          <a href="#craftsmanship" class="text-primary hover:text-accent font-medium transition-colors">工艺展示</a>
+          
+          <a href="#contact" class="text-primary hover:text-accent font-medium transition-colors">联系我们</a>
+        </nav>
+        
+        <!-- 右侧功能区 -->
+        <div class="flex items-center space-x-4">
+          <button class="text-primary hover:text-accent transition-colors">
+            <i class="fa fa-search text-lg"></i>
+          </button>
+          <button class="text-primary hover:text-accent transition-colors">
+            <i class="fa fa-comments text-lg"></i>
+          </button>
+          <button class="hidden sm:block text-primary hover:text-accent transition-colors">
+            <i class="fa fa-globe text-lg"></i>
+          </button>
+          
+          <!-- 移动端菜单按钮 -->
+          <button id="menu-toggle" class="md:hidden text-primary hover:text-accent transition-colors">
+            <i class="fa fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="#home" class="block text-primary hover:text-accent font-medium py-2 transition-colors">首页</a>
+        <a href="#about" class="block text-primary hover:text-accent font-medium py-2 transition-colors">关于我们</a>
+        <a href="#products" class="block text-primary hover:text-accent font-medium py-2 transition-colors">产品中心</a>
+        <a href="#craftsmanship" class="block text-primary hover:text-accent font-medium py-2 transition-colors">工艺展示</a>
+        <a href="#news" class="block text-primary hover:text-accent font-medium py-2 transition-colors">新闻动态</a>
+        <a href="#contact" class="block text-primary hover:text-accent font-medium py-2 transition-colors">联系我们</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main>
+    <!-- 轮播Banner区 -->
+    <section id="home" class="pt-16">
+      <div id="carousel" class="relative h-[70vh] min-h-[500px] overflow-hidden">
+        <!-- 轮播项1 -->
+        <div class="carousel-item relative h-full active">
+          <img src="https://picsum.photos/id/307/1920/1080" alt="青瓷茶具套装展示" class="absolute w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-dark/60 to-transparent"></div>
+          <div class="absolute inset-0 flex items-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="max-w-xl text-white">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-serif font-bold leading-tight text-shadow-lg mb-4">
+                  千年瓷艺<br>当代传承
+                </h1>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] mb-8 text-shadow max-w-md">
+                  秉承古法工艺，融合现代设计，每一件作品都凝聚匠人心血
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="#products" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-md font-medium transition-colors">
+                    探索产品
+                  </a>
+                  <a href="#craftsmanship" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-md font-medium transition-colors">
+                    了解工艺
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 轮播项2 -->
+        <div class="carousel-item relative h-full">
+          <img src="https://picsum.photos/id/175/1920/1080" alt="匠人制作陶瓷场景" class="absolute w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-dark/60 to-transparent"></div>
+          <div class="absolute inset-0 flex items-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="max-w-xl text-white">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-serif font-bold leading-tight text-shadow-lg mb-4">
+                  匠心制作<br>精益求精
+                </h1>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] mb-8 text-shadow max-w-md">
+                  每一件陶瓷都经过72道工序，传承千年技艺，坚守品质承诺
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="#about" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-md font-medium transition-colors">
+                    关于我们
+                  </a>
+                  <a href="#contact" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-md font-medium transition-colors">
+                    联系我们
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 轮播项3 -->
+        <div class="carousel-item relative h-full">
+          <img src="https://picsum.photos/id/118/1920/1080" alt="陶瓷产品家居应用" class="absolute w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-dark/60 to-transparent"></div>
+          <div class="absolute inset-0 flex items-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="max-w-xl text-white">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-serif font-bold leading-tight text-shadow-lg mb-4">
+                  艺术融入<br>现代生活
+                </h1>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] mb-8 text-shadow max-w-md">
+                  精选陶瓷作品，为您的家居空间增添艺术气息与文化底蕴
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="#products" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-md font-medium transition-colors">
+                    浏览系列
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 轮播控制按钮 -->
+        <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-colors">
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-colors">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+        
+        <!-- 轮播指示器 -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
+          <button class="carousel-indicator w-3 h-3 rounded-full hover:bg-white bg-white active" data-index="0"></button>
+          <button class="carousel-indicator w-3 h-3 rounded-full hover:bg-white bg-white/50" data-index="1"></button>
+          <button class="carousel-indicator w-3 h-3 rounded-full hover:bg-white bg-white/50" data-index="2"></button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 品牌亮点区 -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- 亮点1 -->
+          <div class="bg-light p-8 rounded-lg text-center hover-lift">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fa fa-leaf text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-primary">原料甄选</h3>
+            <p class="text-gray-600">严选高岭土，质地天成，为优质陶瓷奠定基础</p>
+          </div>
+          
+          <!-- 亮点2 -->
+          <div class="bg-light p-8 rounded-lg text-center hover-lift">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fa fa-history text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-primary">古法工艺</h3>
+            <p class="text-gray-600">72道工序，坚守传统技艺，重现千年陶瓷风华</p>
+          </div>
+          
+          <!-- 亮点3 -->
+          <div class="bg-light p-8 rounded-lg text-center hover-lift">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fa fa-users text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-primary">设计师团队</h3>
+            <p class="text-gray-600">国际设计师联袂，融合古今，打造独特艺术风格</p>
+          </div>
+          
+          <!-- 亮点4 -->
+          <div class="bg-light p-8 rounded-lg text-center hover-lift">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fa fa-certificate text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-primary">品质认证</h3>
+            <p class="text-gray-600">ISO9001认证，安全环保，确保每一件产品品质</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 热门产品推荐 -->
+    <section id="products" class="py-20 bg-secondary">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-serif font-bold text-primary mb-4">本月精选</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">每一件作品都凝聚匠心，融合传统工艺与现代审美，为您带来独特的艺术体验</p>
+        </div>
+        
+        <!-- 产品分类导航 -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          <button class="px-6 py-2 rounded-full bg-primary text-white font-medium">全部产品</button>
+          <button class="px-6 py-2 rounded-full bg-white text-primary hover:bg-primary/10 font-medium transition-colors">茶具系列</button>
+          <button class="px-6 py-2 rounded-full bg-white text-primary hover:bg-primary/10 font-medium transition-colors">花瓶摆件</button>
+          <button class="px-6 py-2 rounded-full bg-white text-primary hover:bg-primary/10 font-medium transition-colors">餐具套装</button>
+          <button class="px-6 py-2 rounded-full bg-white text-primary hover:bg-primary/10 font-medium transition-colors">装饰挂件</button>
+        </div>
+        
+        <!-- 产品列表 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- 产品1 -->
+          <div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/225/600/600" alt="影青釉浮雕牡丹瓶" class="w-full h-full object-cover transition-opacity duration-500 opacity-100">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-primary">影青釉浮雕牡丹瓶</h3>
+              <p class="text-gray-600 mb-4">手工雕刻，寓意富贵吉祥</p>
+              <div class="flex justify-between items-center">
+                <span class="text-accent font-bold text-lg">¥2,680</span>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary p-2 rounded-full transition-colors">
+                  <i class="fa fa-shopping-cart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 产品2 -->
+          <div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/287/600/600" alt="青瓷茶具套装" class="w-full h-full object-cover transition-opacity duration-500 opacity-100">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-primary">青瓷茶具套装</h3>
+              <p class="text-gray-600 mb-4">一壶四杯，釉色温润如玉</p>
+              <div class="flex justify-between items-center">
+                <span class="text-accent font-bold text-lg">¥1,880</span>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary p-2 rounded-full transition-colors">
+                  <i class="fa fa-shopping-cart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 产品3 -->
+          <div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/30/600/600" alt="青花瓷餐具套装" class="w-full h-full object-cover transition-opacity duration-500 opacity-100">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-primary">青花瓷餐具套装</h3>
+              <p class="text-gray-600 mb-4">28件套，经典青花图案</p>
+              <div class="flex justify-between items-center">
+                <span class="text-accent font-bold text-lg">¥3,280</span>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary p-2 rounded-full transition-colors">
+                  <i class="fa fa-shopping-cart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 产品4 -->
+          <div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/152/600/600" alt="釉下彩装饰盘" class="w-full h-full object-cover transition-opacity duration-500 opacity-100">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-primary">釉下彩装饰盘</h3>
+              <p class="text-gray-600 mb-4">直径30cm，山水图案</p>
+              <div class="flex justify-between items-center">
+                <span class="text-accent font-bold text-lg">¥980</span>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary p-2 rounded-full transition-colors">
+                  <i class="fa fa-shopping-cart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-12">
+          <a href="#" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-md font-medium transition-colors">
+            查看全部产品 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 品牌故事简介 -->
+    <section id="about" class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="relative">
+            <img src="https://picsum.photos/id/177/800/600" alt="公司创始人与老匠人合影" class="w-full h-auto rounded-lg shadow-xl">
+            <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-lg shadow-lg hidden md:block">
+              <p class="text-3xl font-bold">38年</p>
+              <p class="text-sm">专注陶瓷工艺</p>
+            </div>
+          </div>
+          
+          <div>
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-serif font-bold text-primary mb-6">始于1986，专注陶瓷38年</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              瓷韵匠心陶瓷有限公司创立于1986年，坐落于中国瓷都景德镇。三十多年来，我们始终秉承"传承千年技艺，融合现代美学"的理念，致力于将中国传统陶瓷文化发扬光大。
+            </p>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              公司汇聚了一批经验丰富的老匠人和新锐设计师，他们将传统工艺与现代设计相结合，创造出既具有文化底蕴又符合当代审美的陶瓷作品。我们坚信，每一件陶瓷都是有生命的艺术品，承载着匠人的心血与情感。
+            </p>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+              <div class="text-center">
+                <p class="text-3xl font-bold text-primary mb-1">5000+</p>
+                <p class="text-gray-600 text-sm">精美作品</p>
+              </div>
+              <div class="text-center">
+                <p class="text-3xl font-bold text-primary mb-1">28</p>
+                <p class="text-gray-600 text-sm">工艺大师</p>
+              </div>
+              <div class="text-center">
+                <p class="text-3xl font-bold text-primary mb-1">15</p>
+                <p class="text-gray-600 text-sm">国际奖项</p>
+              </div>
+              <div class="text-center">
+                <p class="text-3xl font-bold text-primary mb-1">30+</p>
+                <p class="text-gray-600 text-sm">合作国家</p>
+              </div>
+            </div>
+            
+            <a href="#" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-md font-medium transition-colors">
+              了解更多 <i class="fa fa-long-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 工艺展示 -->
+    <section id="craftsmanship" class="py-20 bg-light">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-serif font-bold text-primary mb-4">72道工序，只为一器</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">每一件陶瓷作品都经过繁复的工序，从原料到成品，凝聚了匠人数月的心血</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 工艺步骤1 -->
+          <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-4">
+              <span class="font-bold">01</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-primary">原料选矿</h3>
+            <p class="text-gray-600 mb-4">精选优质高岭土，经过严格筛选，确保原料纯净度</p>
+            <img src="https://picsum.photos/id/119/600/400" alt="原料选矿" class="w-full h-48 object-cover rounded">
+          </div>
+          
+          <!-- 工艺步骤2 -->
+          <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-4">
+              <span class="font-bold">02</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-primary">制坯成型</h3>
+            <p class="text-gray-600 mb-4">手工拉坯或注浆成型，根据器型选择最合适的成型方式</p>
+            <img src="https://picsum.photos/id/175/600/400" alt="制坯成型" class="w-full h-48 object-cover rounded">
+          </div>
+          
+          <!-- 工艺步骤3 -->
+          <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-4">
+              <span class="font-bold">03</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-primary">施釉烧制</h3>
+            <p class="text-gray-600 mb-4">多层施釉，高温烧制，温度精确控制在1300℃左右</p>
+            <img src="https://picsum.photos/id/174/600/400" alt="施釉烧制" class="w-full h-48 object-cover rounded">
+          </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+          <a href="#" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-md font-medium transition-colors">
+            查看完整工艺流程 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 客户评价区 -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-serif font-bold text-primary mb-4">客户心声</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">来自全国各地客户的真实评价，见证我们的品质与服务</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 评价1 -->
+          <div class="bg-light p-8 rounded-lg shadow-md hover-lift">
+            <div class="flex text-accent mb-4">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <p class="text-gray-600 mb-6 italic">
+              "购买的青瓷茶具套装质感非常好，釉色温润如玉，泡茶时手感舒适，朋友们看到都很喜欢，已经推荐给他们了。"
+            </p>
+            <div class="flex items-center">
+              <img src="https://picsum.photos/id/64/100/100" alt="客户头像" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="font-semibold">王女士</h4>
+                <p class="text-gray-500 text-sm">上海 · 收藏家</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 评价2 -->
+          <div class="bg-light p-8 rounded-lg shadow-md hover-lift">
+            <div class="flex text-accent mb-4">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <p class="text-gray-600 mb-6 italic">
+              "作为一家高端餐厅，我们选择了瓷韵匠心的餐具套装，客人反馈非常好，说提升了整体用餐体验，物有所值。"
+            </p>
+            <div class="flex items-center">
+              <img src="https://picsum.photos/id/91/100/100" alt="客户头像" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="font-semibold">李先生</h4>
+                <p class="text-gray-500 text-sm">北京 · 餐厅老板</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 评价3 -->
+          <div class="bg-light p-8 rounded-lg shadow-md hover-lift">
+            <div class="flex text-accent mb-4">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+            </div>
+            <p class="text-gray-600 mb-6 italic">
+              "牡丹花瓶摆在客厅里非常大气，雕刻精细，釉色均匀，朋友来访都会询问在哪里购买的，很有面子。"
+            </p>
+            <div class="flex items-center">
+              <img src="https://picsum.photos/id/26/100/100" alt="客户头像" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="font-semibold">张女士</h4>
+                <p class="text-gray-500 text-sm">广州 · 家居爱好者</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 新闻动态 -->
+    <section id="news" class="py-20 bg-secondary">
+      
+    </section>
+    
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-serif font-bold text-primary mb-6">联系我们</h2>
+            <p class="text-gray-600 mb-8">
+              无论您有任何疑问、建议或合作意向，都可以通过以下方式与我们联系，我们将尽快回复您。
+            </p>
+            
+            <div class="space-y-6 mb-8">
+              <div class="flex items-start">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <i class="fa fa-map-marker text-primary text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-1">总部地址</h3>
+                  <p class="text-gray-600">江西省景德镇市珠山区陶瓷工业园88号</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <i class="fa fa-phone text-primary text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-1">联系电话</h3>
+                  <p class="text-gray-600">400-888-9999</p>
+                  <p class="text-gray-600">0798-8888888</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <i class="fa fa-envelope text-primary text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-1">电子邮箱</h3>
+                  <p class="text-gray-600">info@ciyunjiangxin.com</p>
+                  <p class="text-gray-600">service@ciyunjiangxin.com</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <i class="fa fa-clock-o text-primary text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-1">工作时间</h3>
+                  <p class="text-gray-600">周一至周日 9:00-18:00</p>
+                  <p class="text-gray-600">节假日正常营业</p>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 class="text-lg font-semibold mb-4">关注我们</h3>
+              <div class="flex space-x-4">
+                <a href="#" class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors">
+                  <i class="fa fa-weixin"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors">
+                  <i class="fa fa-weibo"></i>
+                </a>
+                
+                
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 订阅区域 -->
+    
+  </main>
+  
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white pt-16 pb-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-6">
+            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+              <i class="fa fa-paint-brush text-primary text-xl"></i>
+            </div>
+            <span class="text-2xl font-serif font-bold">瓷韵匠心</span>
+          </div>
+          <p class="text-gray-400 mb-6">
+            传承千年陶瓷技艺，融合现代设计美学，打造高品质陶瓷艺术品。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weixin text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weibo text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-youtube-play text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">快速链接</h3>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="#products" class="text-gray-400 hover:text-white transition-colors">产品中心</a></li>
+            <li><a href="#craftsmanship" class="text-gray-400 hover:text-white transition-colors">工艺展示</a></li>
+            <li><a href="#news" class="text-gray-400 hover:text-white transition-colors">新闻动态</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+        
+        
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">联系方式</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fa fa-map-marker text-accent mt-1 mr-3"></i>
+              <span class="text-gray-400">江西省景德镇市珠山区陶瓷工业园88号</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-phone text-accent mr-3"></i>
+              <span class="text-gray-400">400-888-9999</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-envelope text-accent mr-3"></i>
+              <span class="text-gray-400">info@ciyunjiangxin.com</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-clock-o text-accent mr-3"></i>
+              <span class="text-gray-400">周一至周日 9:00-18:00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2024 瓷韵匠心陶瓷有限公司 保留所有权利</p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">隐私政策</a>
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">使用条款</a>
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">网站地图</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- 返回顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:bg-primary/90 opacity-100 visible">
+    <i class="fa fa-chevron-up"></i>
+  </button>
+  
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        navbar.classList.add('nav-scrolled');
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    // 返回顶部功能
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // 轮播图功能
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    let currentSlide = 0;
+    let slideInterval;
+    
+    // 初始化轮播
+    function startSlideInterval() {
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function showSlide(index) {
+      // 隐藏所有幻灯片
+      carouselItems.forEach(item => item.classList.remove('active'));
+      indicators.forEach(ind => ind.classList.remove('bg-white', 'active'));
+      indicators.forEach(ind => ind.classList.add('bg-white/50'));
+      
+      // 显示当前幻灯片
+      carouselItems[index].classList.add('active');
+      indicators[index].classList.remove('bg-white/50');
+      indicators[index].classList.add('bg-white', 'active');
+      
+      currentSlide = index;
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + carouselItems.length) % carouselItems.length;
+      showSlide(currentSlide);
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % carouselItems.length;
+      showSlide(currentSlide);
+    }
+    
+    // 事件监听
+    prevBtn.addEventListener('click', function() {
+      clearInterval(slideInterval);
+      prevSlide();
+      startSlideInterval();
+    });
+    
+    nextBtn.addEventListener('click', function() {
+      clearInterval(slideInterval);
+      nextSlide();
+      startSlideInterval();
+    });
+    
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', function() {
+        clearInterval(slideInterval);
+        showSlide(index);
+        startSlideInterval();
+      });
+    });
+    
+    // 启动轮播
+    startSlideInterval();
+    
+    // 产品图片加载效果
+    document.addEventListener('DOMContentLoaded', function() {
+      const productImages = document.querySelectorAll('.product-card img');
+      productImages.forEach(img => {
+        img.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+        img.onload = function() {
+          img.classList.remove('opacity-0');
+          img.classList.add('opacity-100');
+        }
+        // 如果图片已经缓存
+        if (img.complete) {
+          img.classList.remove('opacity-0');
+          img.classList.add('opacity-100');
+        }
+      });
+    });
+  </script>
+
+
+</body></html>

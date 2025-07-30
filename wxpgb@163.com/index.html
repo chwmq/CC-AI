@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>味享家餐饮 - 用心做好每一份餐点</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF7A00', // 暖橙色作为主色调
+                        secondary: '#4CAF50', // 绿色作为辅助色，代表新鲜健康
+                        dark: '#333333',
+                        light: '#F9F9F9'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-navbar {
+                transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-4{bottom:1rem}.bottom-6{bottom:1.5rem}.bottom-8{bottom:2rem}.left-1\/2{left:50%}.left-4{left:1rem}.right-4{right:1rem}.right-6{right:1.5rem}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:0.5rem}.ml-4{margin-left:1rem}.ml-auto{margin-left:auto}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-1{height:0.25rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-20{height:5rem}.h-32{height:8rem}.h-48{height:12rem}.h-80{height:20rem}.h-auto{height:auto}.h-full{height:100%}.h-screen{height:100vh}.w-1\/3{width:33.333333%}.w-10{width:2.5rem}.w-12{width:3rem}.w-2\/3{width:66.666667%}.w-20{width:5rem}.w-32{width:8rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}.resize-none{resize:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.scroll-smooth{scroll-behavior:smooth}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-t{border-top-width:1px}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.border-white\/40{border-color:rgb(255 255 255 / 0.4)}.bg-dark{--tw-bg-opacity:1;background-color:rgb(51 51 51 / var(--tw-bg-opacity, 1))}.bg-dark\/70{background-color:rgb(51 51 51 / 0.7)}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-light{--tw-bg-opacity:1;background-color:rgb(249 249 249 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(255 122 0 / var(--tw-bg-opacity, 1))}.bg-primary\/80{background-color:rgb(255 122 0 / 0.8)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-opacity-50{--tw-bg-opacity:0.5}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-dark\/70{--tw-gradient-from:rgb(51 51 51 / 0.7) var(--tw-gradient-from-position);--tw-gradient-to:rgb(51 51 51 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-cover{background-size:cover}.bg-center{background-position:center}.object-cover{object-fit:cover}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-inter{font-family:Inter, system-ui, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[clamp\(1\.8rem\2c 4vw\2c 2\.5rem\)\]{font-size:clamp(1.8rem,4vw,2.5rem)}.text-\[clamp\(1rem\2c 2vw\2c 1\.25rem\)\]{font-size:clamp(1rem,2vw,1.25rem)}.text-\[clamp\(2\.5rem\2c 6vw\2c 4\.5rem\)\]{font-size:clamp(2.5rem,6vw,4.5rem)}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-dark{--tw-text-opacity:1;color:rgb(51 51 51 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(255 122 0 / var(--tw-text-opacity, 1))}.text-secondary{--tw-text-opacity:1;color:rgb(76 175 80 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-100{opacity:1}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }.transition-navbar {
+                transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
+            }.scroll-smooth {
+                scroll-behavior: smooth;
+            }
+        .hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+        .hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+        .hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+        .hover\:scale-\[1\.02\]:hover{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+        .hover\:bg-primary\/10:hover{background-color:rgb(255 122 0 / 0.1)}
+        .hover\:bg-primary\/90:hover{background-color:rgb(255 122 0 / 0.9)}
+        .hover\:bg-white\/30:hover{background-color:rgb(255 255 255 / 0.3)}
+        .hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(255 122 0 / var(--tw-text-opacity, 1))}
+        .hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}
+        .hover\:shadow-xl:hover{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}
+        .focus\:border-primary:focus{--tw-border-opacity:1;border-color:rgb(255 122 0 / var(--tw-border-opacity, 1))}
+        .focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}
+        .focus\:ring-primary\/20:focus{--tw-ring-color:rgb(255 122 0 / 0.2)}
+        .group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+        .group:hover .group-hover\:opacity-100{opacity:1}
+        @media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}}
+        @media (min-width: 768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:p-8{padding:2rem}.md\:px-6{padding-left:1.5rem;padding-right:1.5rem}}
+        @media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:w-1\/2{width:50%}.lg\:w-1\/3{width:33.333333%}.lg\:w-2\/3{width:66.666667%}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:flex-row{flex-direction:row}}
+    </style></head>
+<body class="font-inter bg-light text-dark scroll-smooth">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-navbar bg-dark shadow-md py-2">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex justify-between items-center">
+                <!-- 公司Logo -->
+                <a href="#home" class="flex items-center space-x-2">
+                    <span class="text-primary text-3xl"><i class="fa fa-cutlery"></i></span>
+                    <span class="text-2xl font-bold text-white text-shadow">味享家</span>
+                </a>
+                
+                <!-- 桌面导航菜单 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-primary transition-colors font-medium">首页</a>
+                    <a href="#about" class="text-white hover:text-primary transition-colors font-medium">公司简介</a>
+                    <a href="#services" class="text-white hover:text-primary transition-colors font-medium">服务项目</a>
+                    <a href="#team" class="text-white hover:text-primary transition-colors font-medium">团队介绍</a>
+                    <a href="#menu" class="text-white hover:text-primary transition-colors font-medium">今日菜谱</a>
+                    <a href="#sources" class="text-white hover:text-primary transition-colors font-medium">原材料溯源</a>
+                    <a href="#kitchen" class="text-white hover:text-primary transition-colors font-medium">明厨亮灶</a>
+                    <a href="#contact" class="text-white hover:text-primary transition-colors font-medium">联系我们</a>
+                </nav>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden text-white text-2xl">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 bg-white rounded-lg shadow-lg p-4 absolute left-4 right-4">
+                <nav class="flex flex-col space-y-3">
+                    <a href="#home" class="text-dark hover:text-primary transition-colors py-2 font-medium">首页</a>
+                    <a href="#about" class="text-dark hover:text-primary transition-colors py-2 font-medium">公司简介</a>
+                    <a href="#services" class="text-dark hover:text-primary transition-colors py-2 font-medium">服务项目</a>
+                    <a href="#team" class="text-dark hover:text-primary transition-colors py-2 font-medium">团队介绍</a>
+                    <a href="#menu" class="text-dark hover:text-primary transition-colors py-2 font-medium">今日菜谱</a>
+                    <a href="#sources" class="text-dark hover:text-primary transition-colors py-2 font-medium">原材料溯源</a>
+                    <a href="#kitchen" class="text-dark hover:text-primary transition-colors py-2 font-medium">明厨亮灶</a>
+                    <a href="#contact" class="text-dark hover:text-primary transition-colors py-2 font-medium">联系我们</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主页/英雄区域 -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://picsum.photos/id/292/1920/1080');">
+        <!-- 半透明遮罩 -->
+        <div class="absolute inset-0 bg-dark bg-opacity-50"></div>
+        
+        <!-- 主页内容 -->
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-white mb-6 leading-tight text-shadow animate-fade-in">
+                用心做好每一份餐点
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.25rem)] text-white mb-8 max-w-2xl mx-auto text-shadow">
+                味享家餐饮致力于为您提供健康、美味、安全的食品，从源头把控，用心服务
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg">
+                    查看今日菜谱
+                </a>
+                <a href="#contact" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-medium py-3 px-8 rounded-full transition-all border border-white/40">
+                    联系我们
+                </a>
+            </div>
+        </div>
+        
+        <!-- 向下滚动指示器 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#about" class="text-3xl">
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4 text-dark">公司简介</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- 公司简介图片 -->
+                <div class="lg:w-1/2 rounded-xl overflow-hidden shadow-xl transform transition-transform hover:scale-[1.02]">
+                    <img src="https://picsum.photos/id/431/800/600" alt="味享家餐饮公司环境" class="w-full h-auto">
+                </div>
+                
+                <!-- 公司简介内容 -->
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-4 text-dark">关于味享家</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        味享家餐饮成立于2010年，是一家专注于提供高品质餐饮服务的企业。我们秉承"健康、美味、安全、创新"的经营理念，
+                        致力于为广大客户提供最优质的餐饮体验。
+                    </p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        经过十余年的发展，我们已从最初的小型餐厅成长为拥有多家分店、中央厨房和专业配送团队的综合性餐饮企业，
+                        服务范围涵盖企业团餐、校园餐饮、活动餐宴等多个领域。
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        我们始终坚持以客户需求为导向，不断创新菜品，提升服务质量，赢得了广大客户的信赖与好评。
+                    </p>
+                    
+                    <!-- 公司优势 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start">
+                            <span class="text-primary text-xl mr-3 mt-1"><i class="fa fa-leaf"></i></span>
+                            <div>
+                                <h4 class="font-bold mb-1">健康食材</h4>
+                                <p class="text-gray-600 text-sm">严选优质原材料，确保食品安全</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-primary text-xl mr-3 mt-1"><i class="fa fa-cutlery"></i></span>
+                            <div>
+                                <h4 class="font-bold mb-1">专业团队</h4>
+                                <p class="text-gray-600 text-sm">经验丰富的厨师团队，技艺精湛</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-primary text-xl mr-3 mt-1"><i class="fa fa-truck"></i></span>
+                            <div>
+                                <h4 class="font-bold mb-1">及时配送</h4>
+                                <p class="text-gray-600 text-sm">高效配送体系，保证餐品新鲜</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-primary text-xl mr-3 mt-1"><i class="fa fa-star"></i></span>
+                            <div>
+                                <h4 class="font-bold mb-1">优质服务</h4>
+                                <p class="text-gray-600 text-sm">贴心周到服务，客户满意度高</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务项目 -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4 text-dark">我们的服务</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    我们提供多样化的餐饮服务，满足不同客户的需求，无论是企业团餐还是大型活动宴会，我们都能为您提供专业解决方案
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 服务项目1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/225/600/400" alt="企业团餐服务" class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-dark flex items-center">
+                            <span class="text-primary mr-2"><i class="fa fa-building"></i></span>
+                            企业团餐服务
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            为各类企业提供定制化团餐服务，每日新鲜配送，多样化菜品选择，满足员工不同口味需求。
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 每日新鲜制作</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 营养均衡搭配</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 准时配送上门</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 服务项目2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/488/600/400" alt="校园餐饮服务" class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-dark flex items-center">
+                            <span class="text-primary mr-2"><i class="fa fa-graduation-cap"></i></span>
+                            校园餐饮服务
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            为学校提供健康营养的餐饮解决方案，严格把控食材安全，科学配比营养，助力学生健康成长。
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 营养科学配比</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 严格卫生管控</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 多样化菜品选择</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 服务项目3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/312/600/400" alt="活动宴会服务" class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-dark flex items-center">
+                            <span class="text-primary mr-2"><i class="fa fa-glass"></i></span>
+                            活动宴会服务
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            为各类活动、宴会提供专业餐饮服务，定制化菜单设计，专业服务团队，打造完美宴会体验。
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 定制化菜单</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 专业服务团队</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 现场制作服务</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 服务项目4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/493/600/400" alt="外卖配送服务" class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-dark flex items-center">
+                            <span class="text-primary mr-2"><i class="fa fa-motorcycle"></i></span>
+                            外卖配送服务
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            提供高品质外卖配送服务，精美包装，保温配送，让您在家也能享受到餐厅级别的美食体验。
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 30分钟送达</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 专业保温包装</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 满减优惠活动</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 服务项目5 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/429/600/400" alt="餐饮咨询服务" class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-dark flex items-center">
+                            <span class="text-primary mr-2"><i class="fa fa-comments"></i></span>
+                            餐饮咨询服务
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            为餐饮创业者提供专业咨询服务，包括菜单设计、厨房规划、运营管理等全方位的专业指导。
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 专业团队指导</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 定制化方案</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 全程跟踪服务</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 服务项目6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/495/600/400" alt="食材供应服务" class="w-full h-full object-cover transition-transform hover:scale-110 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-dark flex items-center">
+                            <span class="text-primary mr-2"><i class="fa fa-shopping-basket"></i></span>
+                            食材供应服务
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            为餐饮企业提供优质食材供应服务，源头直采，品质保证，冷链配送，确保食材新鲜安全。
+                        </p>
+                        <ul class="text-gray-600 space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 源头直采</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 品质保证</li>
+                            <li class="flex items-center"><i class="fa fa-check text-secondary mr-2"></i> 冷链配送</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队介绍 -->
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4 text-dark">我们的团队</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    味享家拥有一支专业、敬业的团队，他们在各自的岗位上发挥着重要作用，共同为客户提供最优质的餐饮服务
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 团队成员1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/id/1005/400/500" alt="张厨师长" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div class="text-white">
+                                <p class="text-sm">拥有20年餐饮行业经验，曾任职于多家五星级酒店，擅长融合创新菜系</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 text-center">
+                        <h3 class="text-xl font-bold mb-1 text-dark">张明</h3>
+                        <p class="text-primary mb-3">行政总厨</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors"><i class="fa fa-weibo"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors"><i class="fa fa-wechat"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 团队成员2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/id/1011/400/500" alt="李经理" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div class="text-white">
+                                <p class="text-sm">餐饮管理专业毕业，15年餐饮连锁品牌运营经验，擅长标准化管理体系建设</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 text-center">
+                        <h3 class="text-xl font-bold mb-1 text-dark">李婷</h3>
+                        <p class="text-primary mb-3">运营总监</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors"><i class="fa fa-weibo"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors"><i class="fa fa-wechat"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 团队成员3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/id/1012/400/500" alt="王采购" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div class="text-white">
+                                <p class="text-sm">农业大学食品专业毕业，10年食材采购经验，精通各类食材品质鉴别与把控</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 text-center">
+                        <h3 class="text-xl font-bold mb-1 text-dark">王伟</h3>
+                        <p class="text-primary mb-3">采购总监</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors"><i class="fa fa-weibo"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors"><i class="fa fa-wechat"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 团队成员4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/id/1027/400/500" alt="陈营养师" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div class="text-white">
+                                <p class="text-sm">营养学博士，专注于餐饮营养搭配研究，为不同人群提供科学的膳食方案</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 text-center">
+                        <h3 class="text-xl font-bold mb-1 text-dark">陈静</h3>
+                        <p class="text-primary mb-3">营养顾问</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors"><i class="fa fa-weibo"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors"><i class="fa fa-wechat"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 今日菜谱 -->
+    <section id="menu" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4 text-dark">今日菜谱</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    每日精选新鲜食材，由我们的专业厨师团队精心烹制，为您带来健康美味的用餐体验
+                </p>
+                <div class="mt-4 text-gray-500 font-medium">
+                    <span id="current-date">2025年7月27日星期日</span> 菜谱
+                </div>
+            </div>
+            
+            <!-- 菜谱分类标签 -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button class="menu-tab active px-5 py-2 rounded-full bg-primary text-white font-medium transition-all">全部菜品</button>
+                <button class="menu-tab px-5 py-2 rounded-full bg-white text-dark font-medium hover:bg-primary/10 transition-all">热菜</button>
+                <button class="menu-tab px-5 py-2 rounded-full bg-white text-dark font-medium hover:bg-primary/10 transition-all">凉菜</button>
+                <button class="menu-tab px-5 py-2 rounded-full bg-white text-dark font-medium hover:bg-primary/10 transition-all">汤品</button>
+                <button class="menu-tab px-5 py-2 rounded-full bg-white text-dark font-medium hover:bg-primary/10 transition-all">主食</button>
+                <button class="menu-tab px-5 py-2 rounded-full bg-white text-dark font-medium hover:bg-primary/10 transition-all">点心</button>
+            </div>
+            
+            <!-- 菜谱列表 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 菜品1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                    <div class="flex">
+                        <div class="w-1/3">
+                            <img src="https://picsum.photos/id/292/300/300" alt="红烧肉" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3 p-4">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-dark">红烧肉</h3>
+                                <span class="text-primary font-bold">¥38</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">精选五花肉，传统工艺烹制，肥而不腻，入口即化</p>
+                            <div class="flex items-center mt-3 text-sm">
+                                <span class="text-yellow-500 mr-1"><i class="fa fa-star"></i></span>
+                                <span class="text-gray-600">4.8 (128评价)</span>
+                                <span class="ml-auto text-gray-500"><i class="fa fa-fire"></i> 320kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 菜品2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                    <div class="flex">
+                        <div class="w-1/3">
+                            <img src="https://picsum.photos/id/488/300/300" alt="清炒时蔬" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3 p-4">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-dark">清炒时蔬</h3>
+                                <span class="text-primary font-bold">¥18</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">当日新鲜蔬菜，简单清炒，保留食材原汁原味</p>
+                            <div class="flex items-center mt-3 text-sm">
+                                <span class="text-yellow-500 mr-1"><i class="fa fa-star"></i></span>
+                                <span class="text-gray-600">4.6 (96评价)</span>
+                                <span class="ml-auto text-gray-500"><i class="fa fa-fire"></i> 85kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 菜品3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                    <div class="flex">
+                        <div class="w-1/3">
+                            <img src="https://picsum.photos/id/493/300/300" alt="西红柿炒鸡蛋" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3 p-4">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-dark">西红柿炒鸡蛋</h3>
+                                <span class="text-primary font-bold">¥16</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">经典家常菜，酸甜可口，营养丰富，老少皆宜</p>
+                            <div class="flex items-center mt-3 text-sm">
+                                <span class="text-yellow-500 mr-1"><i class="fa fa-star"></i></span>
+                                <span class="text-gray-600">4.9 (215评价)</span>
+                                <span class="ml-auto text-gray-500"><i class="fa fa-fire"></i> 156kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 菜品4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                    <div class="flex">
+                        <div class="w-1/3">
+                            <img src="https://picsum.photos/id/568/300/300" alt="酸菜鱼" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3 p-4">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-dark">酸菜鱼</h3>
+                                <span class="text-primary font-bold">¥48</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">选用新鲜鲈鱼，搭配秘制酸菜，酸辣开胃，肉质鲜嫩</p>
+                            <div class="flex items-center mt-3 text-sm">
+                                <span class="text-yellow-500 mr-1"><i class="fa fa-star"></i></span>
+                                <span class="text-gray-600">4.7 (156评价)</span>
+                                <span class="ml-auto text-gray-500"><i class="fa fa-fire"></i> 280kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 菜品5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                    <div class="flex">
+                        <div class="w-1/3">
+                            <img src="https://picsum.photos/id/225/300/300" alt="冬瓜丸子汤" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3 p-4">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-dark">冬瓜丸子汤</h3>
+                                <span class="text-primary font-bold">¥22</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">手工猪肉丸子，搭配新鲜冬瓜，清淡爽口，营养丰富</p>
+                            <div class="flex items-center mt-3 text-sm">
+                                <span class="text-yellow-500 mr-1"><i class="fa fa-star"></i></span>
+                                <span class="text-gray-600">4.5 (89评价)</span>
+                                <span class="ml-auto text-gray-500"><i class="fa fa-fire"></i> 120kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 菜品6 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                    <div class="flex">
+                        <div class="w-1/3">
+                            <img src="https://picsum.photos/id/365/300/300" alt="扬州炒饭" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3 p-4">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-dark">扬州炒饭</h3>
+                                <span class="text-primary font-bold">¥20</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">传统扬州风味，选用优质大米，配以多种食材炒制而成</p>
+                            <div class="flex items-center mt-3 text-sm">
+                                <span class="text-yellow-500 mr-1"><i class="fa fa-star"></i></span>
+                                <span class="text-gray-600">4.6 (132评价)</span>
+                                <span class="ml-auto text-gray-500"><i class="fa fa-fire"></i> 250kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 查看更多按钮 -->
+            <div class="text-center mt-10">
+                <button class="bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-md">
+                    查看更多菜品 <i class="fa fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 原材料溯源 -->
+    <section id="sources" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4 text-dark">原材料溯源</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    我们坚持从源头把控食材质量，所有原材料均可追溯，让您吃得放心、吃得安心
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-10">
+                <!-- 溯源流程 -->
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6 text-dark">我们的食材溯源流程</h3>
+                    
+                    <div class="space-y-8">
+                        <!-- 步骤1 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">1</div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold mb-2 text-dark">优质产地选择</h4>
+                                <p class="text-gray-600">
+                                    我们与全国多个优质农产品产区建立长期合作关系，严格筛选符合有机、绿色标准的种植和养殖基地。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 步骤2 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">2</div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold mb-2 text-dark">严格质量检测</h4>
+                                <p class="text-gray-600">
+                                    所有食材在进入仓库前都要经过严格的质量检测，包括农残检测、微生物检测等多项指标。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 步骤3 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">3</div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold mb-2 text-dark">全程冷链运输</h4>
+                                <p class="text-gray-600">
+                                    采用专业冷链物流系统，确保食材在运输过程中保持新鲜，温度全程监控记录。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 步骤4 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">4</div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold mb-2 text-dark">可追溯管理系统</h4>
+                                <p class="text-gray-600">
+                                    建立完善的食材溯源管理系统，记录每批食材的来源、检测结果、运输信息等，实现全程可追溯。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 溯源展示 -->
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6 text-dark">食材来源展示</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- 食材来源1 -->
+                        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md transition-all hover:shadow-lg">
+                            <img src="https://picsum.photos/id/133/600/400" alt="有机蔬菜基地" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-dark mb-1">有机蔬菜基地</h4>
+                                <p class="text-gray-600 text-sm mb-2">山东 潍坊 有机蔬菜种植基地</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="flex items-center mr-3"><i class="fa fa-certificate text-secondary mr-1"></i> 有机认证</span>
+                                    <span class="flex items-center"><i class="fa fa-truck mr-1"></i> 24小时直达</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 食材来源2 -->
+                        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md transition-all hover:shadow-lg">
+                            <img src="https://picsum.photos/id/177/600/400" alt="生态养殖基地" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-dark mb-1">生态养殖基地</h4>
+                                <p class="text-gray-600 text-sm mb-2">河南 信阳 生态养殖基地</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="flex items-center mr-3"><i class="fa fa-certificate text-secondary mr-1"></i> 绿色认证</span>
+                                    <span class="flex items-center"><i class="fa fa-truck mr-1"></i> 48小时直达</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 食材来源3 -->
+                        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md transition-all hover:shadow-lg">
+                            <img src="https://picsum.photos/id/184/600/400" alt="优质粮油供应" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-dark mb-1">优质粮油供应</h4>
+                                <p class="text-gray-600 text-sm mb-2">黑龙江 五常 优质粮油产区</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="flex items-center mr-3"><i class="fa fa-certificate text-secondary mr-1"></i> 地理标志</span>
+                                    <span class="flex items-center"><i class="fa fa-truck mr-1"></i> 72小时直达</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 食材来源4 -->
+                        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md transition-all hover:shadow-lg">
+                            <img src="https://picsum.photos/id/429/600/400" alt="海鲜直供中心" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-dark mb-1">海鲜直供中心</h4>
+                                <p class="text-gray-600 text-sm mb-2">浙江 舟山 海鲜直供中心</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="flex items-center mr-3"><i class="fa fa-certificate text-secondary mr-1"></i> 新鲜认证</span>
+                                    <span class="flex items-center"><i class="fa fa-truck mr-1"></i> 12小时直达</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 明厨亮灶 -->
+    <section id="kitchen" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4 text-dark">明厨亮灶</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    我们推行"明厨亮灶"工程，将厨房操作全过程公开透明，让您监督我们的每一个操作环节，吃得更放心
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- 主厨房展示 -->
+                <div class="lg:col-span-2 rounded-xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/287/1200/600" alt="中央厨房全景" class="w-full h-auto">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-20 h-20 rounded-full bg-primary/80 text-white flex items-center justify-center transform transition-transform hover:scale-110">
+                                <i class="fa fa-play text-2xl"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-dark/70 text-white px-3 py-1 rounded-full text-sm">
+                            中央厨房实时监控
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 厨房标准 -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4 text-dark">我们的厨房标准</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-secondary text-xl mr-3 mt-1"><i class="fa fa-check-circle"></i></span>
+                            <div>
+                                <h4 class="font-bold mb-1">严格卫生标准</h4>
+                                <p class="text-gray-600 text-sm">每日三次全面清洁消毒，确保操作环境洁净卫生</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <span class="text-secondary text-xl mr-3 mt-1"><i class="fa fa-check-circle"></i></span>
+                            <div>
+                                <h4 class="font-bold mb-1">规范操作流程</h4>
+                                <p class="text-gray-600 text-sm">所有厨师严格遵守操作规范，确保食品制作安全</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <span class="text-secondary text-xl mr-3 mt-1"><i class="fa fa-check-circle"></i></span>
+                            <div>
+                                <h4 class="font-bold mb-1">员工健康管理</h4>
+                                <p class="text-gray-600 text-sm">员工持健康证上岗，每日晨检，确保无健康隐患</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <span class="text-secondary text-xl mr-3 mt-1"><i class="fa fa-check-circle"></i></span>
+                            <div>
+                                <h4 class="font-bold mb-1">食材分区存放</h4>
+                                <p class="text-gray-600 text-sm">生熟食材严格分区存放，避免交叉污染</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <span class="text-secondary text-xl mr-3 mt-1"><i class="fa fa-check-circle"></i></span>
+                            <div>
+                                <h4 class="font-bold mb-1">全程质量监控</h4>
+                                <p class="text-gray-600 text-sm">厨房关键环节安装监控，全程记录操作过程</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 厨房区域展示 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+                <div class="rounded-xl overflow-hidden shadow-md transition-all hover:shadow-lg group">
+                    <img src="https://picsum.photos/id/42/600/400" alt="切配区" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="p-3 bg-white">
+                        <h4 class="font-bold text-dark text-center">切配区</h4>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl overflow-hidden shadow-md transition-all hover:shadow-lg group">
+                    <img src="https://picsum.photos/id/225/600/400" alt="烹饪区" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="p-3 bg-white">
+                        <h4 class="font-bold text-dark text-center">烹饪区</h4>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl overflow-hidden shadow-md transition-all hover:shadow-lg group">
+                    <img src="https://picsum.photos/id/431/600/400" alt="面点区" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="p-3 bg-white">
+                        <h4 class="font-bold text-dark text-center">面点区</h4>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl overflow-hidden shadow-md transition-all hover:shadow-lg group">
+                    <img src="https://picsum.photos/id/365/600/400" alt="消毒区" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="p-3 bg-white">
+                        <h4 class="font-bold text-dark text-center">消毒区</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4 text-dark">联系我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    无论您有任何疑问、建议或合作意向，都可以通过以下方式联系我们，我们将尽快回复您
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-10">
+                <!-- 联系信息 -->
+                <div class="lg:w-1/3">
+<div class="bg-gray-50 rounded-xl shadow-lg p-6 h-full">
+	<h3 class="text-xl font-bold mb-6 text-dark">联系方式</h3>
+	<div class="space-y-6">
+		<div class="flex items-start"> <span class="text-primary text-xl mr-4 mt-1"><i class="fa fa-map-marker"></i></span>
+			<div>
+				<h4 class="font-bold mb-1">公司地址</h4>
+				<p class="text-gray-600">北京市朝阳区建国路88号味享家大厦15层</p>
+			</div>
+		</div>
+		<div class="flex items-start"> <span class="text-primary text-xl mr-4 mt-1"><i class="fa fa-phone"></i></span>
+			<div>
+				<h4 class="font-bold mb-1">联系电话</h4>
+				<p class="text-gray-600">400-888-9999</p>
+				<p class="text-gray-600 text-sm">工作时间: 周一至周日 8:00-20:00</p>
+			</div>
+		</div>
+		<div class="flex items-start"> <span class="text-primary text-xl mr-4 mt-1"><i class="fa fa-envelope"></i></span>
+			<div>
+				<h4 class="font-bold mb-1">电子邮箱</h4>
+				<p class="text-gray-600">service@weixiangjia.com</p>
+				<p class="text-gray-600">合作咨询:合作@weixiangjia.com</p>
+			</div>
+		</div>
+	</div>
+	<div class="mt-8">
+		<h4 class="font-bold mb-3 text-dark">关注我们</h4>
+		<div class="flex space-x-4"> <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"> <i class="fa fa-weixin"></i> </a> <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"> <i class="fa fa-weibo"></i> </a>   </div>
+	</div>
+	
+</div>
+<div class="lg:w-2/3">
+	
+</div>
+</div>
+</div>
+</div></section>
+<footer class="bg-dark text-white py-12">
+	<div class="container mx-auto px-4">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8"> <!-- 公司简介 -->
+			<div>
+				<div class="flex items-center space-x-2 mb-4"> <span class="text-primary text-3xl"><i class="fa fa-cutlery"></i></span> <span class="text-2xl font-bold">味享家</span> </div>
+				<p class="text-gray-400 mb-4"> 味享家餐饮致力于为您提供健康、美味、安全的食品，从源头把控，用心服务，让每一位顾客享受美食的乐趣。 </p>
+				<div class="flex space-x-4"> <a href="#" class="text-gray-400 hover:text-primary transition-colors"> <i class="fa fa-weixin text-xl"></i> </a> <a href="#" class="text-gray-400 hover:text-primary transition-colors"> <i class="fa fa-weibo text-xl"></i> </a> <a href="#" class="text-gray-400 hover:text-primary transition-colors"> <i class="fa fa抖音 text-xl"></i> </a> <a href="#" class="text-gray-400 hover:text-primary transition-colors">  </a> </div>
+			</div>
+			<div>
+				<h4 class="text-lg font-bold mb-4">快速链接</h4>
+				<ul class="space-y-2">
+					<li><a href="#home" class="text-gray-400 hover:text-primary transition-colors">首页</a></li>
+					<li><a href="#about" class="text-gray-400 hover:text-primary transition-colors">公司简介</a></li>
+					<li><a href="#services" class="text-gray-400 hover:text-primary transition-colors">服务项目</a></li>
+					<li><a href="#team" class="text-gray-400 hover:text-primary transition-colors">团队介绍</a></li>
+					<li><a href="#menu" class="text-gray-400 hover:text-primary transition-colors">今日菜谱</a></li>
+					<li><a href="#sources" class="text-gray-400 hover:text-primary transition-colors">原材料溯源</a></li>
+					<li><a href="#kitchen" class="text-gray-400 hover:text-primary transition-colors">明厨亮灶</a></li>
+					<li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">联系我们</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4 class="text-lg font-bold mb-4">服务范围</h4>
+				<ul class="space-y-2">
+					<li class="text-gray-400">企业团餐服务</li>
+					<li class="text-gray-400">校园餐饮服务</li>
+					<li class="text-gray-400">活动宴会服务</li>
+					<li class="text-gray-400">外卖配送服务</li>
+					<li class="text-gray-400">餐饮咨询服务</li>
+					<li class="text-gray-400">食材供应服务</li>
+					<li class="text-gray-400">餐饮品牌加盟</li>
+					<li class="text-gray-400">厨房设计规划</li>
+				</ul>
+			</div>
+			<div>
+				<h4 class="text-lg font-bold mb-4">联系我们</h4>
+				<ul class="space-y-3">
+					<li class="flex items-start"> <span class="text-primary mr-3 mt-1"><i class="fa fa-map-marker"></i></span> <span class="text-gray-400">北京市朝阳区建国路88号味享家大厦15层</span> </li>
+					<li class="flex items-start"> <span class="text-primary mr-3 mt-1"><i class="fa fa-phone"></i></span> <span class="text-gray-400">400-888-9999</span> </li>
+					<li class="flex items-start"> <span class="text-primary mr-3 mt-1"><i class="fa fa-envelope"></i></span> <span class="text-gray-400">service@weixiangjia.com</span> </li>
+					<li class="flex items-start"> <span class="text-primary mr-3 mt-1"><i class="fa fa-clock-o"></i></span> <span class="text-gray-400">周一至周日 8:00-20:00</span> </li>
+				</ul>
+			</div>
+		</div>
+		<div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+			<p>© 2023 味享家餐饮管理有限公司 版权所有 | 京ICP备12345678号</p>
+			<p class="mt-2">食品安全许可证: JY11101050001234 | 餐饮服务许可证: 京餐证字2023第1234号</p>
+		</div>
+	</div>
+</footer> <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg transform transition-all hover:scale-110 opacity-100 visible"> <i class="fa fa-arrow-up"></i> </button>
+<script>
+	const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', function() {
+	if (window.scrollY > 100) {
+		navbar.classList.add('bg-dark', 'shadow-md', 'py-2');
+		navbar.classList.remove('bg-transparent', 'py-4');
+		backToTop.classList.remove('opacity-0', 'invisible');
+		backToTop.classList.add('opacity-100', 'visible');
+	} else {
+		navbar.classList.remove('bg-dark', 'shadow-md', 'py-2');
+		navbar.classList.add('bg-transparent', 'py-4');
+		backToTop.classList.add('opacity-0', 'invisible');
+		backToTop.classList.remove('opacity-100', 'visible');
+	}
+}); 
+
+const menuToggle = document.getElementById('menu-toggle'); 
+const mobileMenu = document.getElementById('mobile-menu'); 
+menuToggle.addEventListener('click', function() 
+{ 
+    mobileMenu.classList.toggle('hidden'); 
+const icon = menuToggle.querySelector('i'); 
+if (icon.classList.contains('fa-bars')) { 
+    icon.classList.remove('fa-bars'); 
+icon.classList.add('fa-times'); 
+} else { 
+    icon.classList.remove('fa-times'); 
+    icon.classList.add('fa-bars'); } }); 
+     const mobileMenuItems = mobileMenu.querySelectorAll('a'); 
+     mobileMenuItems.forEach(item => { item.addEventListener('click', function() { 
+        mobileMenu.classList.add('hidden'); 
+     const icon = menuToggle.querySelector('i'); 
+     icon.classList.remove('fa-times'); 
+     icon.classList.add('fa-bars'); }); }); 
+      backToTop.addEventListener('click', function() { 
+        window.scrollTo({ top: 0, behavior: 'smooth' }); }); 
+        const currentDateElement = document.getElementById('current-date'); 
+        if (currentDateElement) { 
+            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }; 
+            const currentDate = new Date(); 
+            currentDateElement.textContent = currentDate.toLocaleDateString('zh-CN', options); 
+        }  const menuTabs = document.querySelectorAll('.menu-tab'); 
+        menuTabs.forEach(tab => { tab.addEventListener('click', function() { 
+            menuTabs.forEach(t => { t.classList.remove('active', 'bg-primary', 'text-white');
+             t.classList.add('bg-white', 'text-dark'); });  }); }); 
+</script>
+
+</body></html>
